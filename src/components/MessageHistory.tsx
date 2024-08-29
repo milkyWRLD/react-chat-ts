@@ -1,31 +1,34 @@
 import React from 'react'
+import { Message as MessageType } from '../types'
 import Message from './Message'
 import Response from './Response'
 import Typing from './Typing'
 
 interface MessageHistoryProps {
-	list: {
-		id: string
-		from: { name: string }
-		type: 'message' | 'response' | 'typing'
-		time: string
-		text?: string
-	}[]
+	list: MessageType[]
 }
 
 const MessageHistory: React.FC<MessageHistoryProps> = ({ list }) => {
-	if (list.length === 0) return null
-
 	return (
 		<ul>
-			{list.map(msg => {
-				switch (msg.type) {
+			{list.map(message => {
+				switch (message.type) {
 					case 'message':
-						return <Message key={msg.id} from={msg.from} message={msg} />
+						return (
+							<Message key={message.id} from={message.from} message={message} />
+						)
 					case 'response':
-						return <Response key={msg.id} from={msg.from} message={msg} />
+						return (
+							<Response
+								key={message.id}
+								from={message.from}
+								message={message}
+							/>
+						)
 					case 'typing':
-						return <Typing key={msg.id} from={msg.from} message={msg} />
+						return (
+							<Typing key={message.id} from={message.from} message={message} />
+						)
 					default:
 						return null
 				}

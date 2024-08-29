@@ -1,8 +1,9 @@
 import React from 'react'
+import { Message as MessageType } from '../types'
 
 interface ResponseProps {
-	from: { name: string }
-	message: { time: string; text?: string }
+	from: MessageType['from']
+	message: MessageType
 }
 
 const Response: React.FC<ResponseProps> = ({ from, message }) => (

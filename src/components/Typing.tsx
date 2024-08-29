@@ -1,7 +1,8 @@
 import React from 'react'
+import { Message as MessageType } from '../types'
 
 interface TypingProps {
-	from: { name: string }
+	from: MessageType['from']
 	message: { time: string }
 }
 

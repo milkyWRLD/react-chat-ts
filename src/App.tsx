@@ -1,8 +1,9 @@
 import React from 'react'
 import './App.css'
 import MessageHistory from './components/MessageHistory'
+import { Message } from './types'
 
-const messages = [
+const messages: Message[] = [
 	{
 		id: 'chat-5-1090',
 		from: { name: 'Ольга' },
